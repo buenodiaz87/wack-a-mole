@@ -2,18 +2,24 @@ let currMoleTile;
 let currPlantTile;
 let score = 0;
 let gameOver = false;
+let resetButton = document.getElementById("resetBoard");
+
 window.onload = function(){
     setGame();
 }
 function setGame(){
+
     for(let i=0; i <9; i++){
         let tile = document.createElement("div");
         tile.id = i.toString();
         document.getElementById("board").appendChild(tile);
 tile.addEventListener("click",selectTile);
     }
-    setInterval(setMole, 1000);
-    setInterval(setPlant, 2000);
+   var moleTimer= setInterval(setMole, 1000);
+    var plantTimer =setInterval(setPlant, 2000);
+    
+    resetButton.addEventListener("click", setGame);
+
 }
 function getRandomTile(){
     let num = Math.floor(Math.random() * 9);
@@ -62,6 +68,7 @@ function selectTile(){
 
     }else if(this== currPlantTile){
         document.getElementById("score").innerText = "Game Over: " + score.toString();
-        gameOver= true;
-    }
+        gameOver= true;    
+    };
+    resetButton.addEventListener("click", score = 0);
 }
