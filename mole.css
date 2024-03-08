@@ -1,12 +1,10 @@
 body {
-    flex: auto;
     font-family: arial, helvetic, sans-serif;
     text-align: center;
     background: url("./mario-bg.jpg");
     background-size: cover;
 }
 #board {
-    flex: auto;
     width: 540px;
     height: 540px;
     background: green;
@@ -20,14 +18,12 @@ body {
     
 }
 #board div {
-    flex: auto;
 width: 180px;
 height: 180px;
 background-image: url("./pipe.png");
 background-size: cover;
 }
 #board div img{
-    flex: auto;
     width: 100px;
     height: 100px;
     user-select: none;

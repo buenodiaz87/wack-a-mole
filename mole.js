@@ -1,12 +1,23 @@
+(() =>{
 let currMoleTile;
 let currPlantTile;
 let score = 0;
 let gameOver = false;
-let resetButton = document.getElementById('resetBoard');
+let resetButton
+
 
 window.onload = function(){
+    
+    resetButton=document.getElementById('resetBoard');
+    resetButton.addEventListener("click", ()=>{
+        clearBoard()
+        setGame()
+    
+    });
     setGame();
+
 }
+
 function setGame(){
 
     for(let i=0; i <9; i++){
@@ -16,10 +27,12 @@ function setGame(){
 tile.addEventListener("click",selectTile);
     }
    var moleTimer= setInterval(setMole, 1000);
-    var plantTimer =setInterval(setPlant, 2000);
-    
-    resetButton.addEventListener("click", setGame);
+    var plantTimer =setInterval(setPlant, 2000); 
 
+}
+function clearBoard(){
+    const tiles = document.querySelectorAll('.tile');
+    tiles.forEach(tile =>tile.remove())
 }
 function getRandomTile(){
     let num = Math.floor(Math.random() * 9);
@@ -70,5 +83,7 @@ function selectTile(){
         document.getElementById("score").innerText = "Game Over: " + score.toString();
         gameOver= true;    
     };
-    resetButton.addEventListener("click", score = 0);
+
 }
+}
+)();
