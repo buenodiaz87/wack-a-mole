@@ -2,7 +2,7 @@ let currMoleTile;
 let currPlantTile;
 let score = 0;
 let gameOver = false;
-let resetButton = document.getElementById("resetBoard");
+let resetButton = document.getElementById('resetBoard');
 
 window.onload = function(){
     setGame();
