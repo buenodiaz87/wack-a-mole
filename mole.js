@@ -10,9 +10,10 @@ window.onload = function(){
     
     resetButton=document.getElementById('resetBoard');
     resetButton.addEventListener("click", ()=>{
+        score = 0
         clearBoard()
         setGame()
-    
+     
     });
     setGame();
 
@@ -22,6 +23,7 @@ function setGame(){
 
     for(let i=0; i <9; i++){
         let tile = document.createElement("div");
+        tile.classList.add('tile');
         tile.id = i.toString();
         document.getElementById("board").appendChild(tile);
 tile.addEventListener("click",selectTile);
@@ -33,6 +35,7 @@ tile.addEventListener("click",selectTile);
 function clearBoard(){
     const tiles = document.querySelectorAll('.tile');
     tiles.forEach(tile =>tile.remove())
+   
 }
 function getRandomTile(){
     let num = Math.floor(Math.random() * 9);
